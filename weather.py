@@ -26,19 +26,18 @@ def BsText(list,text):
     return list
 def PrintWeather(list,locat,re_mail):
     # if list[0][0]['weatherText'] not in {'晴','多云','阴'}:
-    if list[0][0]['weatherText'] not in {'多云', '阴'}:
-        print('嘟嘟天气小提醒：')
-        print('明 天 是:',list[0][0]['date'])
-        print('天{}{}气：'.format(chr(12288),chr(12288)),list[0][0]['weatherText'])
-        print('白{}{}天:'.format(chr(12288),chr(12288)),list[0][0]['weatherWind']['windDirectionDay'],list[0][0]['weatherWind']['windPowerDay'])
-        print('空气质量:',list[0][0]['weatherPm25'])
-        print('气{}{}温：'.format(chr(12288),chr(12288)),list[0][2]['temperature'],'——',list[0][1]['temperature'])
-        send_mail(list, re_mail)
-    else:
-        pass
+    # if list[0][0]['weatherText'] not in {'多云', '阴'}:
+    print('嘟嘟天气小提醒：')
+    print('明 天 是:',list[0][0]['date'])
+    print('天{}{}气：'.format(chr(12288),chr(12288)),list[0][0]['weatherText'])
+    print('白{}{}天:'.format(chr(12288),chr(12288)),list[0][0]['weatherWind']['windDirectionDay'],list[0][0]['weatherWind']['windPowerDay'])
+    print('空气质量:',list[0][0]['weatherPm25'])
+    print('气{}{}温：'.format(chr(12288),chr(12288)),list[0][2]['temperature'],'——',list[0][1]['temperature'])
+    send_mail(list, re_mail)
+    # else:
+    #     pass
     # send_mail(list,re_mail)
     return ''
-def main():
 def main():
     parser = argparse.ArgumentParser(description='Demo of argparse')
     parser.add_argument('--re_mail', type=str, default='')
