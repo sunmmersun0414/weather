@@ -14,15 +14,15 @@ class Mail:
         self.receivers = []  # 收件人的邮箱地址，可设置为你的QQ邮箱或者其他邮箱，可多个
         self.mail_content = ''
 
-    def send(self,list):
+    def send(self,content):
 
-        content = self.mail_content  # 邮件内容
-        content += '嘟嘟天气小提醒：\r\n'
-        content += '明 天 是 ： '+list[0][0]['date']+'\r\n'
-        content += '天{}{}气：'.format(chr(12288),chr(12288))+list[0][0]['weatherText']+'\r\n'
-        content += '白{}{}天：'.format(chr(12288),chr(12288))+list[0][0]['weatherWind']['windDirectionDay']+list[0][0]['weatherWind']['windPowerDay']+'\r\n'
-        content += '空气质量：'+list[0][0]['weatherPm25']+'\r\n'
-        content += '气{}{}温：'.format(chr(12288),chr(12288))+list[0][2]['temperature']+'——'+list[0][1]['temperature']+'\r\n'
+        # content = self.mail_content  # 邮件内容
+        # content += '嘟嘟天气小提醒：\r\n'
+        # content += '明 天 是 ： '+list[0][0]['date']+'\r\n'
+        # content += '天{}{}气：'.format(chr(12288),chr(12288))+list[0][0]['weatherText']+'\r\n'
+        # content += '白{}{}天：'.format(chr(12288),chr(12288))+list[0][0]['weatherWind']['windDirectionDay']+list[0][0]['weatherWind']['windPowerDay']+'\r\n'
+        # content += '空气质量：'+list[0][0]['weatherPm25']+'\r\n'
+        # content += '气{}{}温：'.format(chr(12288),chr(12288))+list[0][2]['temperature']+'——'+list[0][1]['temperature']+'\r\n'
         message = MIMEText(content, 'plain', 'utf-8')
         # content = '<html><body>'
         # content += '<p>嘟嘟天气小提醒:</p>'
@@ -72,6 +72,7 @@ def send_mail(content,re_mail):
     if re_mail != '':
         mail.receivers = [re_mail]
     # mail.mail_content=content
+    # mail.mail_content = content
     mail.send(content)
 
 if __name__ == '__main__':
