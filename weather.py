@@ -64,7 +64,7 @@ def SendMail(list,re_mail):
 def main():
     parser = argparse.ArgumentParser(description='Demo of argparse')
     parser.add_argument('--re_mail', type=str, default='')
-    parser.add_argument('--locat', type=str, default='江苏南京六合天气')
+    parser.add_argument('--locat', type=str, default='nj')
     list=[]
     args = parser.parse_args()
     # re_mail = '740267516@qq.com'
@@ -72,6 +72,10 @@ def main():
     # locat = '江苏南京六合天气'
     re_mail =args.re_mail
     locat = args.locat
+    if locat == "nj":
+        locat = '江苏南京六合天气'
+    else:
+        locat = '江苏宿迁天气'
     locat_url = parse.quote(locat)
     # re_mail = 'sun.h.w@foxmail.com'
     url = 'https://weathernew.pae.baidu.com/weathernew/pc?query={}&srcid=4982&forecast=long_day_forecast'.format(str(locat_url))
